@@ -19,6 +19,7 @@ Route::get('/', [TaskHomeController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::get('/login', [RegisterController::class, 'login']);
 Route::get('/dashboard', [RegisterController::class, 'dashboard']);
+Route::post('/dashboard', [RegisterController::class, 'store']);
 Route::get('/manage-task', [RegisterController::class, 'show']);
 // admin routing
 Route::get('/admin-login', [AdminControllerLogin::class, 'index']);

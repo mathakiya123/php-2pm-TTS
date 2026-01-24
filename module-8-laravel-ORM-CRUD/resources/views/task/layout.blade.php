@@ -56,8 +56,6 @@
 </div>
 
 <!-- create a add task model -->
-
-
 <div class="modal fade" id="addTaskModal" tabindex="-1" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered">
 <div class="modal-content rounded-4">
@@ -67,7 +65,7 @@
 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 <div class="modal-body">
-<form>
+<form method="post">
 <div class="mb-3">
 <label class="form-label">Task Title</label>
 <input type="text" class="form-control" placeholder="Enter task title" required>
@@ -106,6 +104,7 @@
 Add Task
 </button>
 </form>
+
 </div>
 </div>
 </div>

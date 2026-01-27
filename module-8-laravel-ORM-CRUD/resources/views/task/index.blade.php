@@ -87,11 +87,15 @@
 
     <!-- Text Content -->
     <div class="content text-center">
-      <h2>Complete your daily tasks!</h2>
+      <h2>Task Manager APP</h2>
       <p>
         Accomplish your daily tasks and we help you
         keep track of your growth
       </p>
+
+      
+      <a href="/contact-us" class="text-dark fs-3"><i class="bi bi-phone"></i>Contact Us</a>
+    
     </div>
 
     <!-- Footer Navigation -->

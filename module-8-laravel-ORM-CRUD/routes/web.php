@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskHomeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\admin\AdminControllerLogin;
 use App\Http\Controllers\admin\AdminControllerDashboard;
 /*
@@ -18,6 +19,10 @@ use App\Http\Controllers\admin\AdminControllerDashboard;
 Route::get('/', [TaskHomeController::class, 'index']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::get('/login', [RegisterController::class, 'login']);
+// contact us page routing
+Route::get('/contact-us', [ContactController::class, 'index']);
+Route::post('/contact-us', [ContactController::class, 'store']);
+// add task
 Route::get('/dashboard', [RegisterController::class, 'dashboard']);
 Route::post('/dashboard', [RegisterController::class, 'store']);
 Route::get('/manage-task', [RegisterController::class, 'show']);

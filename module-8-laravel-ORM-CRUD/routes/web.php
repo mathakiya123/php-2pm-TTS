@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\admin\AdminControllerLogin;
 use App\Http\Controllers\admin\AdminControllerDashboard;
+use App\Http\Controllers\admin\AddEmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +30,10 @@ Route::get('/manage-task', [RegisterController::class, 'show']);
 // admin routing
 Route::get('/admin-login', [AdminControllerLogin::class, 'index']);
 Route::get('/admin-login/dashboard', [AdminControllerDashboard::class, 'index']);
+Route::get('/admin-login/manage-contact', [ContactController::class, 'show']);
+Route::get('/admin-login/manage-contact/{id}', [ContactController::class, 'destroy']);
+// add employee
+Route::get('/admin-login/add-employee', [AddEmployeeController::class, 'index']);
+Route::post('/admin-login/add-employee', [AddEmployeeController::class, 'store']);
+Route::get('/admin-login/manage-employee', [AddEmployeeController::class, 'show']);
+Route::get('/admin-login/manage-employee/{id}', [AddEmployeeController::class, 'destroy']);Route::get('/admin-login/manage-employee/{id}', [AddEmployeeController::class, 'edit']);Route::post('/admin-login/manage-employee/{id}', [AddEmployeeController::class, 'update']);

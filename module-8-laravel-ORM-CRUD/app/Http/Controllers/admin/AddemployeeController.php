@@ -1,8 +1,11 @@
 <?php
-namespace App\Http\Controllers;
+
+namespace App\Http\Controllers\admin;
+use App\Models\AdminAddEmployee;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Contact;
-class ContactController extends Controller
+
+class AddemployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -11,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('task.contact');
+        return view('task.admin.addemployee');
     }
 
     /**
@@ -32,28 +35,26 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //create a validations
+         //create a validations
          $validated = $request->validate([
               
           'name' => 'required|max:255',
-          'email' => 'required|email|max:255',
+          'age' => 'required|max:255',
           'phone' => 'required|min:10|max:10',
-          'subject' => 'required|max:255',
-          'message' => 'required',
+           'address' => 'required',
          ]);   
 
-        //  create a ORM Elequent query builder for insert data
-            
+        //  create a ORM Elequent query builder for insert data in employee
         $data=array(
             "name"=>$request->name,
-            "email"=>$request->email,
+            "age"=>$request->age,
             "phone"=>$request->phone,
-            "subject"=>$request->subject,
-            "message"=>$request->message
+            "address"=>$request->address
         );
         // insert elequent ORM model
-        Contact::create($data);
-        return redirect('/contact-us')->with('success','Thanks for contact with us');
+        AdminAddEmployee::create($data);
+        return redirect('/admin-login/add-employee')->with('success','Thanks for contact with us');
+
 
     }
 
@@ -65,9 +66,8 @@ class ContactController extends Controller
      */
     public function show()
     {
-        // create a elequent ORM query builder for show all data
-        $data=Contact::all();
-        return view('task.admin.managecontact',['data'=>$data]);
+        $data=AdminAddEmployee::all();
+        return view('task.admin.manageemployee',["data"=>$data]);
     }
 
     /**
@@ -78,7 +78,11 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        //edit employee data 
+        $data=AdminAddEmployee::where('id',$id)->first();
+        return view('task.admin.editemployee',["data"=>$data]);
+
+
     }
 
     /**
@@ -90,7 +94,16 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $data=array(
+            "name"=>$request->name,
+            "age"=>$request->age,
+            "phone"=>$request->phone,
+            "address"=>$request->address
+        );
+
+        // create elequent query builder for update data
+        AdminAddEmployee::where('id',$id)->update($data);
+        return redirect('/admin-login/manage-employee')->with('success','Employee data successfully updated');
     }
 
     /**
@@ -101,8 +114,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        // create elequent query builder for delete data 
-        Contact::where('id',$id)->delete();
-        return redirect('/admin-login/manage-contact/')->with('del','contact successfully deleted');
+          // create elequent query builder for delete data 
+        AdminAddEmployee::where('id',$id)->delete();
+        return redirect('/admin-login/manage-employee/')->with('del','Employee successfully deleted');
+
     }
 }

@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Contact Us</title>
-
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -141,7 +139,7 @@ Melbourne, Australia
 </div>
 @endif
 <!-- pass a error vaalidation message -->
-@if ($errors->any())
+<!-- @if ($errors->any())
 <div class="alert alert-danger">
 <ul>
 @foreach ($errors->all() as $error)
@@ -149,29 +147,44 @@ Melbourne, Australia
 @endforeach
 </ul>
 </div>
-@endif
+@endif -->
 <form method="post">
 @csrf
 <div class="row g-2">
 
 <div class="col-6">
-<input type="text" name="name" class="form-control" placeholder="Your Name">
+<input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" placeholder="Your Name">
+@error('name')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
 </div>
 
 <div class="col-6">
-<input type="email" name="email" class="form-control" placeholder="Your Email">
+<input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Your Email">
+@error('email')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
 </div>
 
 <div class="col-6">
-<input type="tel" name="phone" class="form-control" placeholder="Phone">
+<input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="Phone">
+@error('phone')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
 </div>
 
 <div class="col-6">
-<input type="text" name="subject" class="form-control" placeholder="Subject">
+<input type="text" name="subject" class="form-control  @error('subject') is-invalid @enderror" placeholder="Subject">
+@error('subject')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
 </div>
 
 <div class="col-12">
-<textarea class="form-control" name="message" rows="3" placeholder="Your Message"></textarea>
+<textarea class="form-control  @error('message') is-invalid @enderror" name="message" rows="3" placeholder="Your Message"></textarea>
+@error('message')
+<div class="invalid-feedback">{{ $message }}</div>
+@enderror
 </div>
 
 <div class="col-12">

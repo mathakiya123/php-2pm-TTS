@@ -40,26 +40,34 @@ body {
 }
 
 /* Sidebar */
+
 .sidebar {
   min-height: 100vh;
-  background: #fff;
-  border-right: 1px solid #e5e7eb;
+  background: #f8f9fa;
 }
 
-.sidebar a {
-  color: #374151;
-  padding: 12px 15px;
-  display: block;
-  border-radius: 10px;
-  text-decoration: none;
-  margin-bottom: 6px;
+.sidebar-menu .nav-link {
+  color: #333;
+  padding: 10px 12px;
+  border-radius: 6px;
 }
 
-.sidebar a:hover,
-.sidebar a.active {
-  background: #fbbf24;
+.sidebar-menu .nav-link:hover,
+.sidebar-menu .nav-link.active {
+  background-color: #e9ecef;
   color: #000;
 }
+
+/* Hover dropdown */
+.sidebar-menu .dropdown:hover .dropdown-menu {
+  display: block;
+  position: static;
+  float: none;
+  margin-left: 20px;
+  box-shadow: none;
+  border: none;
+}
+
 
 /* Cards */
 .dashboard-card {

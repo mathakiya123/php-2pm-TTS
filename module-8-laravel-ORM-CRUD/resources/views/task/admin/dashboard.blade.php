@@ -29,8 +29,8 @@
 
         <div class="col-md-4">
           <div class="card dashboard-card shadow-sm p-4">
-            <h6 class="text-muted">Pending</h6>
-            <h3 class="fw-bold text-danger">6</h3>
+            <h6 class="text-muted">Total contacts</h6>
+            <h3 class="fw-bold text-danger">   </h3>
           </div>
         </div>
       </div>

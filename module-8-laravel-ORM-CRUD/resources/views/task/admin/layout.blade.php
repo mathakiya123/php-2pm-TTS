@@ -14,20 +14,68 @@
   <div class="row">
 
     <!-- Sidebar -->
-    <nav class="col-lg-2 col-md-3 d-none d-md-block sidebar p-3">
-      <h4 class="fw-bold mb-4 text-center">Admin</h4>
+  
 
-      <a href="#" class="active"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-      <a href="#"><i class="bi bi-list-task me-2"></i> Tasks</a>
-      <a href="#"><i class="bi bi-people me-2"></i> Users</a>
-      <a href="#"><i class="bi bi-bar-chart me-2"></i> Reports</a>
+<nav class="col-lg-2 col-md-3 d-none d-md-block sidebar p-3">
+  <h4 class="fw-bold mb-4 text-center">Admin</h4>
 
-      <hr>
+  <ul class="nav flex-column sidebar-menu">
 
-      <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+    <li class="nav-item">
+      <a href="/admin-login/dashboard" class="nav-link active">
+        <i class="bi bi-speedometer2 me-2"></i> Dashboard
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="bi bi-list-task me-2"></i> Tasks
+      </a>
+    </li>
+
+    <!-- Employee Dropdown -->
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle">
+        <i class="bi bi-people me-2"></i> Add Employee
+      </a>
+
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" href="/admin-login/add-employee">
+            <i class="bi bi-person-plus me-2"></i> Add Employee
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="/admin-login/manage-employee">
+            <i class="bi bi-gear me-2"></i> Manage Employee
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="bi bi-bar-chart me-2"></i> Reports
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="/admin-login/manage-contact" class="nav-link">
+        <i class="bi bi-phone me-2"></i> Manage Contact
+      </a>
+    </li>
+
+    <hr>
+
+    <li class="nav-item">
+      <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal">
         <i class="bi bi-power text-danger me-2"></i> Logout
       </a>
-    </nav>
+    </li>
+
+  </ul>
+</nav>
+
 
     <!-- Main Content -->
     @yield('dashboard')
